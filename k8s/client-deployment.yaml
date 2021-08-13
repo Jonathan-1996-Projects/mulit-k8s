@@ -1,0 +1,19 @@
+apiVersion: apps/vi
+kind: Deployment
+metadata:
+  name: client-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLables:
+      component: web
+  template:
+    metadata:
+      label:
+        component: web
+    spc:
+      containers:
+        - name: client
+          image: jonathan061798
+          ports:
+            - containerPort: 3000
